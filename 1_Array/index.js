@@ -82,4 +82,65 @@ arr3[0].n = 15
 console.log("arr3", arr3)
 console.log("arr3Copy", arr3Copy)
 
+//foreach
+console.log("\n")
+console.log("foreach")
+const animals = ['sheep', 'sheep', 'dog', 'sheep', 'cat', 'sheep', 'fish', 'sheep']
+function countSheeps(animal) {
+    if (animal === 'sheep') {
+        this.sheeps += 1
+    } else {
+        this.nonSheeps += 1
+    }
+}
 
+const count = { sheeps: 0, nonSheeps: 0 }
+
+animals.forEach(countSheeps, count)
+console.log("count", count)
+
+//map
+console.log("\n")
+console.log("map")
+const users = [
+    { _id: 1, firtsname: "akrem", lastName: "hchaichi", age: 27 },
+    { _id: 2, firtsname: "insaf", lastName: "sassi", age: 26 }
+]
+
+console.log("map", users.map(user => {
+    return {
+        _id: 1, firtsname: user.firtsname, lastName: user.lastName
+    }
+}))
+
+//flat
+console.log("\n")
+console.log("flat")
+const multiArr = [[1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [[1, 2, 3, 4, 5, 6, 7, 8, 9]]]
+
+console.log("flat", multiArr.flat(1))
+
+//flatMap
+console.log("\n")
+console.log("flatMap")
+const multiArr1 = [[1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9]]
+
+console.log("flatMap", multiArr1.flatMap(a => a.slice(0, 4)))
+
+//reduce
+console.log("\n")
+console.log("reduce")
+const animals1 = ['sheep', 'sheep', 'dog', 'sheep', 'cat', 'sheep', 'fish', 'sheep']
+console.log("reduce", animals1.reduce((acc, animal) => {
+    if (acc[animal]) {
+        acc[animal] += 1
+    } else {
+        acc[animal] = 1
+    }
+    return acc
+}, {}))
+
+const ages = [15, 28, 93, 104, 55, 56, 17, 28, 39]
+console.log("reduce", ages.reduce((acc, age) => {
+    return acc + age
+}, 0))
